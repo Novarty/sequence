@@ -9,7 +9,6 @@ describe App do
   let(:sequence4) { described_class.new(4) }
   let(:sequence10) { described_class.new(10) }
 
-
   describe 'run' do
     it 'return Sequence instance' do
       expect(sequence1).to be_an_instance_of(App)
