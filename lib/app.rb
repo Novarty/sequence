@@ -1,4 +1,3 @@
-require 'byebug'
 class App # :nodoc:
   def initialize(sequence)
     @n = split_string(sequence)
