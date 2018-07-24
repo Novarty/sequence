@@ -1,7 +1,8 @@
 class Run # :nodoc:
   require_relative 'app'
-  print 'Введите кол-во итераций '
-  n = gets.to_i
-  seq = App.new(n)
-  seq.run
+  print 'Введите строку '
+  string = gets
+  seq = App.new(string)
+  puts seq.run
+  # n.times seq.run
 end

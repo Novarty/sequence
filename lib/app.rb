@@ -1,33 +1,23 @@
+require 'byebug'
 class App # :nodoc:
-  def initialize(iterations)
-    @n = iterations
+  def initialize(sequence)
+    @n = split_string(sequence)
   end
 
-  def run
-    result = ''
-    count = 1
-    puts str = '1'
-    (@n - 1).times do
-      (0..str.size - 1).each do |i|
-        if str[i + 1] && str[i + 2].nil?
-          if str[i] == str[i + 1]
-            count += 1
-          else
-            result += "#{count}#{str[i]}1#{str[i + 1]}"
-            break
-          end
-        elsif str[i] == str[i + 1]
-          count += 1
-        else
-          result += "#{count}#{str[i]}"
-          count = 1
-        end
+  def run(i = 0, count = 1, str = '')
+    while i < @n.size
+      while (@n[i] == @n[i + 1]) && (i + 1 < @n.size)
+        count += 1
+        i += 1
       end
-      puts str = result
-      @n = result
+      str += count.to_s + @n[i]
       count = 1
-      result = ''
+      i += 1
     end
-    @n
+    str
+  end
+
+  def split_string(string)
+    string.delete("\n").split('')
   end
 end
